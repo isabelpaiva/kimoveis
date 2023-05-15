@@ -19,11 +19,11 @@ export class Schedule {
   @Column()
   hour: string;
 
-  @ManyToOne(() => User, (user) => user.id)
+  @ManyToOne(() => User)
   @JoinColumn()
   user: User;
 
-  @ManyToOne(() => RealEstate, (real_estate) => real_estate.id)
+  @ManyToOne(() => RealEstate)
   @JoinColumn()
-  realEstateId: RealEstate;
+  realEstate: RealEstate;
 }

@@ -1,18 +1,21 @@
-import "reflect-metadata"
-import "express-async-errors"
-import express from "express"
-import { errorHandler } from "./error";
-import { categoryRouter } from "./routes/category.routes";
-import { loginRouter } from "./routes/login.routes";
+import "reflect-metadata";
+import "express-async-errors";
+import express from "express";
+import { handleErros } from "./error";
 import { userRoutes } from "./routes/user.routes";
-
+import { loginRouter } from "./routes/login.routes";
+import { categoryRouter } from "./routes/category.routes";
+import { realEstateRouter } from "./routes/realEstate.routes";
+import { schedulesRouter } from "./routes/schedules.routes";
 
 const app = express();
 app
   .use(express.json())
-  .use(errorHandler)
+  .use(handleErros)
   .use(userRoutes)
   .use(loginRouter)
-  .use(categoryRouter);
+  .use(categoryRouter)
+  .use(realEstateRouter)
+  .use(schedulesRouter);
 
-export default app
+export default app;

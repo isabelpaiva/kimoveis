@@ -2,12 +2,16 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { Category } from "./category.entitie";
 import { Address } from "./adresses.entitie";
+import { Schedule } from "./schedule.entitie";
 
 @Entity({ name: "real_estate" })
 export class RealEstate {
@@ -23,15 +27,19 @@ export class RealEstate {
   @Column({ type: "integer" })
   size: number;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: "date" })
   createdAt: Date;
 
-  @UpdateDateColumn()
-  updateAt: Date;
+  @UpdateDateColumn({ type: "date" })
+  updatedAt: Date;
 
-  @OneToOne(() => Category, (categories) => categories.id)
-  categoryId: Category;
+  @ManyToOne(() => Category)
+  category: Category;
 
-  @OneToOne(() => Address, (addresses) => addresses.id)
-  adressId: Address;
+  @OneToOne(() => Address)
+  @JoinColumn()
+  address: Address;
+
+  @OneToMany(() => Schedule, (schedules) => schedules.realEstate)
+  schedules: Schedule[];
 }

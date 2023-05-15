@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const createSchema = z.object({
+export const createSchema = z.object({
   name: z.string().max(45),
   email: z.string().email().max(45),
   password: z
@@ -10,7 +10,7 @@ const createSchema = z.object({
   admin: z.boolean().optional().default(false),
 });
 
-const returnSchema = createSchema
+export const returnSchema = createSchema
   .extend({
     id: z.number(),
     createdAt: z.string(),
@@ -20,8 +20,7 @@ const returnSchema = createSchema
   })
   .omit({ password: true });
 
-const allSchema = returnSchema.array();
+export const allSchema = returnSchema.array();
 
-const updateSchema = createSchema.partial().omit({ admin: true });
+export const updateSchema = createSchema.partial().omit({ admin: true });
 
-export { createSchema, returnSchema, allSchema, updateSchema };

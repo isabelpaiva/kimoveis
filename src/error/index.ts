@@ -1,16 +1,18 @@
 import { Request, Response, NextFunction } from "express";
 import { ZodError } from "zod";
-export class AppError extends Error {
+
+class AppError extends Error {
   statusCode: number;
+  message: string;
 
   constructor(message: string, statusCode: number = 400) {
-    super();
+    super(message);
     this.message = message;
     this.statusCode = statusCode;
   }
 }
 
-export const errorHandler = async (
+const handleErros = (
   err: Error,
   req: Request,
   res: Response,
@@ -27,9 +29,9 @@ export const errorHandler = async (
     });
   }
 
-  console.log(err);
-
   return res.status(500).json({
     message: "Internal server error",
   });
 };
+
+export { AppError, handleErros };

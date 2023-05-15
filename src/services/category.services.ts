@@ -1,3 +1,5 @@
+import { RealEstate } from "../entities";
+import { AppError } from "../error";
 import { categoryRepository, realEstateRepository } from "../repositories";
 
 export const createCategoryService = async (payload: any) => {
@@ -10,15 +12,13 @@ export const getCategoriesService = async () => {
 };
 
 export const getCategoriesRealEstateService = async (id: number) => {
-  const category = await categoryRepository.findOneBy({ id });
-  const result = await realEstateRepository.find({
+  const result = await categoryRepository.findOne({
     where: {
-      categoryId: {
-        id,
-      },
+      id,
+    },
+    relations: {
+      realEstate: true,
     },
   });
-  console.log(result);
-
-  return { ...category, estate: result };
+  return result;
 };
