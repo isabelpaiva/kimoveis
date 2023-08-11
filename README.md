@@ -1,50 +1,14 @@
-# Projeto Final: KImóveis - TypeORM com Relacionamentos
 
-## Introdução
+# Kimóveis 🏡
 
-O dono da imobiliária Kimóveis contratou sua empresa para desenvolver uma aplicação para o gerenciamento de seus serviços.
+Aplicação que permite cadastrar imóveis e usuários interessados em adquirir propriedades. Além disso, oferece funcionalidades para agendamento e consulta de horários de visitas aos imóveis disponíveis no banco de dados da imobiliária.
 
-Através da aplicação deverá ser possível realizar o cadastro de imóveis e de usuários interessados na aquisição de propriedades. Além disso, deverá ser possível realizar o agendamento e consultar horários de visitas às propriedades disponíveis no banco de dados da imobiliária.
+## Tecnologias Utilizadas: 
 
-A sua empresa está te confiando esse desafio, portanto, dê o seu melhor no desenvolvimento desse projeto, seguindo todas as regras impostas pela empresa contratante.
+- Node.js 
+- Express
+- typeORM
 
-## Regras da entrega
-
-**A entrega deve seguir as seguintes regras:**
-
--   O código deve estar em **TypeScript**, caso não esteja a entrega será zerada;
--   Deve ser feita a **serialização** dos dados utilizando a biblioteca **zod**;
--   Deverá ser utilizado um banco de dados **postgres** para a elaboração da API;
--   Deverá utilizar **TypeORM** no lugar de **PG e PG-Format**;
--   O nome da tabela/entidade, colunas e demais especificações, devem ser **seguidas à risca**. Caso tenha divergência, os testes não funcionarão e será descontado nota;
-    -   Tenha muita atenção sobre o nome das chaves nos objetos de entrada e saída de cada requisição;
-
-**Essa entrega possui testes automatizados, portanto:**
-
--   A alteração nos testes implica em ter a nota da entrega zerada.
--   Os arquivos de testes e configuração para execução deles já se encontram no repositório da entrega, sendo necessário configurar a conexão com o banco de dados para teste e desenvolvimento, e todo o restante para que a aplicação funcione.
--   Não altere nenhum arquivo, apenas acrescente os arquivos que forem necessários.
-
-**Para um melhor andamento da sua entrega, não deixe os testes para o fim, mas sim comece com eles.**
-
--   Como essa entrega contém testes, sempre que criar uma nova rota execute o comando de execução dos testes `npm run test` ou `yarn test` a depender do gerenciador de pacotes usado.
--   Execute apenas a rota específica, com o comando `npm run test <pastaDentroDoIntegration>/<nomeDoArquivo>` como, por exemplo, rodando apenas a rota de criação de usuários: `npm run test users/createUser.route.spec.ts`
--   A execução dos testes a cada criação de rota ajuda no debug e no andamento do projeto, e evita erros surpresas quando o projeto estiver 100% concluído.
-
-**Evite problemas com os testes:**
-
--   Indicamos que inicie o projeto criando todas as entidades corretamente, pois os testes só funcionaram caso as entidades estejam criadas e exportadas com seus devidos nomes e valores de forma correta.
--   Devido a isso indicamos que antes de começar as rotas, rode qualquer teste para validar se a criação das suas entidades estão seguindo a risca o que foi pedido. Tanto a tipagem quantos os contraints pedidos em cada coluna são levados em consideração para os testes.
-
-**Crie suas tabelas seguindo essas nomenclaturas para banco e entidade:**
-
--   Tabela **users**: precisa estar com o nome da sua entidade: **User**
--   Tabela **addresses**: precisa estar com o nome da sua entidade: **Address**
--   Tabela **categories**: precisa estar com o nome da sua entidade: **Category**
--   Tabela **real_estate**: precisa estar com o nome da sua entidade: **RealEstate**
--   Tabela **schedules**: precisa estar com o nome da sua entidade: **Schedule**
-
-**Todas as entidades devem estar exportadas em seus respectivos arquivos, e na pasta entities deve ter um arquivo index.ts, importando e exportando todas as entidades em forma de módulo.**
 
 ## Endpoints:
 
